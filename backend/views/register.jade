@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    h1=title
+    ul.errors
+        if errors
+           each error, i in errors
+                li.alert.alert-danger #{error.msg}
+                  form(method='post', action='/users/register')
+                    .form-group.required
+                      label Name
+                      input.form-control(type='text', required='', placeholder='Name', name='name')
+                    .form-group.required
+                      label Username
+                      input.form-control(type='text', required='', placeholder='Username', name='username')
+                    .form-group.required
+                      label Email
+                      input.form-control(type='email', required='', placeholder='Email', name='email')
+                    .form-group.required
+                      label Password
+                      input.form-control(type='password', placeholder='Password', name='password', pattern='.{5,}', required='', title='5 characters minimum')
+                    .form-group.required
+                      label Confirm Password
+                      input.form-control(type='password', placeholder='Password', name='password2', pattern='.{5,}', required='', title='5 characters minimum')
+                    button.btn.btn-primary(type='submit') Submit
