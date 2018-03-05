@@ -21,10 +21,12 @@ import {Posts}  from "../services/post-service";
 import { TwitterService } from 'ng2-twitter';
 import { Base64 } from '@ionic-native/base64';
 import { FileTransfer } from '@ionic-native/file-transfer';
+import {WelcomePage} from "../pages/welcome/welcome";
 
 @NgModule({
   declarations: [
     MyApp,
+      WelcomePage,
     HomePage,
     AddPlacePage,
     PlacePage,
@@ -43,6 +45,7 @@ import { FileTransfer } from '@ionic-native/file-transfer';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+      WelcomePage,
     HomePage,
     AddPlacePage,
     PlacePage,
