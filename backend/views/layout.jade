@@ -3,7 +3,6 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
-    
 
   body
       .container.logo
@@ -20,6 +19,27 @@ html
               a.nav-link(href='/categories/add') Add Category
           != messages()
     .container
-       block content
-    footer
+
+    block content
+
+    .container.form-horizontal
+        #form.row.container.center.z-depth-5
+            form#name-header Contact Us
+            form#name-field.col.s12
+                .row
+                    .input-field.col.s12.white-text
+                        input#name.input-field-text(type='text')
+                        label.login-text(for='name') Name
+            form#email-field.col.s12
+                .row
+                    .input-field.col.s12.white-text
+                        input#user_email.input-field-text(type='email')
+                        label.login-text(for='email') Email
+            form#message-field.col.s12
+                .row
+                    .input-field.col.s12.white-text
+                        textarea#textarea1.materialize-textarea(type='text-area')
+                        label.login-text(for='textarea1') Message
+            a#send_email.waves-effect.waves-light.btn-large.black.homepage-buttons.button-text.center.modal-trigger(href='#modal1')  Send email
+      footer.p
      p WebSign &copy; 2018

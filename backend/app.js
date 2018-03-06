@@ -10,6 +10,7 @@ var multer = require('multer');
 var upload = multer({ dest: 'uploads/' })
 var expressValidator = require('express-validator');
 var cors = require('cors');
+var nodemailer = require('nodemailer');
 
 var mongo = require('mongodb');
 var db = require('monk')('mongodb://travelblog:travelblog@ds255768.mlab.com:55768/travelblog');
@@ -21,6 +22,49 @@ var users = require('./routes/users');
 
 var app = express();
 app.use(cors());
+
+/*
+//START MAIL SERVICE
+ var smtpTransport = nodemailer.createTransport("SMTP", {
+
+    service: 'Gmail',
+    auth: {
+        // enter your gmail account
+        user: 'GMAIL_ACCOUNT',
+        // enter your gmail password
+        pass: 'GMAIL_PASS'
+    }
+});
+
+app.use(express.static(__dirname + '/public'));
+
+app.get('/', function (req, res) {
+    res.sendfile('./public/index.html');
+});
+
+app.get('/send', function (req, res) {
+
+    var mailOptions = {
+        to: req.query.to,
+        subject: 'Contact Form Message',
+        from: "Contact Form Request" + "<" + req.query.from + '>',
+        html:  "From: " + req.query.name + "<br>" +
+        "User's email: " + req.query.user + "<br>" +     "Message: " + req.query.text
+    }
+
+    console.log(mailOptions);
+    smtpTransport.sendMail(mailOptions, function (err, response) {
+        if (err) {
+            console.log(err);
+            res.end("error");
+        } else {
+            console.log("Message sent: " + response.message);
+            res.end("sent");
+        }
+    });
+
+});
+//END MAIL SERVICE */
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
